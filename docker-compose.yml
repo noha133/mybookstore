@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3'
 
 services:
 
@@ -9,14 +9,18 @@ services:
       - .:/app
     ports:
       - "8000:8000"
-  #   depends_on:
-  #     - db
-  # db:
-  #     image: postgres
-  #     volumes:
-  #       - ./data/db:/var/lib/postgresql/data
-  #     environment:
-  #       - POSTGRES_DB=data
-  #       - POSTGRES_USER=root
-  #       - POSTGRES_PASSWORD=root
-  #     container_name: postgres_db
+    environment:
+        - POSTGRES_DB=data
+        - POSTGRES_USER=root
+        - POSTGRES_PASSWORD=root
+    depends_on:
+      - db
+  db:
+      image: postgres:14-bullseye
+      # volumes:
+      #   - ./data/db:/var/lib/postgresql/data
+      environment:
+        - POSTGRES_DB=data
+        - POSTGRES_USER=root
+        - POSTGRES_PASSWORD=root
+      container_name: postgres_db
