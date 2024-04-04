@@ -120,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
-        # "rest_framework.authentication.TokenAuthentication"
+        "rest_framework.authentication.TokenAuthentication"
     )
 }
 
@@ -160,3 +160,10 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False  # will set username same as email
 ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
 ACCOUNT_UNIQUE_EMAIL = True
+
+AUTHENTICATION_BACKENDS = [
+    # allauth specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # Needed to login by username in Django admin, regardless of allauth
+    'django.contrib.auth.backends.ModelBackend',
+]
