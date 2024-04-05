@@ -10,7 +10,7 @@ from rest_framework import status
 
 class ProductList(APIView):
     """
-    List all products, or create a new product.
+    List all products, or create new product.
     """
 
     def get(self, request, format=None):
