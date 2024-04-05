@@ -24,8 +24,47 @@ class Product(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    # @property
+    # def total_quantity_ordered(self):
+    #     return (
+    #         self.orders.aggregate(total_quantity_ordered=models.Sum("quantity")).get(
+    #             "total_quantity_ordered"
+    #         )
+    #         or 0
+    #     )
+
     class Meta:
         ordering = ["name"]
         indexes = [models.Index(fields=["name"]), models.Index(fields=["-created"])]
+
     def __str__(self):
         return self.name
+
+
+class Cart(models.Model):
+    STATUS_CHOICES = [
+        ("ABANDONED", "Abandoned"),
+        ("PAID", "Paid"),
+    ]
+    user = models.ForeignKey(User, related_name="carts", on_delete=models.CASCADE)
+    status = models.CharField(
+        max_length=20, choices=STATUS_CHOICES, default="ABANDONED"
+    )
+
+    def __str__(self):
+        return f"Cart {self.id}"
+
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(Cart, related_name="items", on_delete=models.CASCADE)
+    product = models.ForeignKey(
+        Product, related_name="order_items", on_delete=models.CASCADE
+    )
+    quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return str(self.id)
+
+    @property
+    def get_cost(self):
+        return self.price * self.quantity
