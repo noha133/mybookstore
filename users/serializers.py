@@ -1,5 +1,5 @@
 from dj_rest_auth.registration.serializers import RegisterSerializer
-from rest_framework import serializers
+from rest_framework import serializers, exceptions
 from django.utils.translation import gettext_lazy as _
 from allauth.account.adapter import get_adapter
 from allauth.account import app_settings as allauth_account_settings
@@ -13,7 +13,7 @@ class CustomRegisterSerializer(RegisterSerializer):
         email = get_adapter().clean_email(email)
         if email and User.objects.filter(email=email).first():
             msg = _('User with this email already exists.')
-            # raise exceptions.ValidationError(msg)
+            raise exceptions.ValidationError(msg)
         return email
 
     def validate_password1(self, password):
