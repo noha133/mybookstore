@@ -24,14 +24,14 @@ class Product(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    # @property
-    # def total_quantity_ordered(self):
-    #     return (
-    #         self.orders.aggregate(total_quantity_ordered=models.Sum("quantity")).get(
-    #             "total_quantity_ordered"
-    #         )
-    #         or 0
-    #     )
+    @property
+    def total_quantity_ordered(self):
+        return (
+            self.orders.aggregate(total_quantity_ordered=models.Sum("quantity")).get(
+                "total_quantity_ordered"
+            )
+            or 0
+        )
 
     class Meta:
         ordering = ["name"]
@@ -54,6 +54,10 @@ class Cart(models.Model):
     def __str__(self):
         return f"Cart {self.id}"
 
+    @property
+    def get_total_cost(self):
+        return sum(item.get_cost for item in self.items.all())
+
 
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, related_name="items", on_delete=models.CASCADE)
@@ -68,3 +72,12 @@ class CartItem(models.Model):
     @property
     def get_cost(self):
         return self.price * self.quantity
+
+
+class Order(models.Model):
+    STATUS_CHOICES = [
+        ("PENDING", "pending"),
+        ("PAID", "Paid"),
+    ]
+    cart = models.ForeignKey(Cart, related_name="orders", on_delete=models.CASCADE)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="PAID")

@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Category, Product, Cart, CartItem
+from .models import Category, Product, Cart, CartItem, Order
+from users.models import User
 
 # Register your models here.
 
@@ -23,3 +24,9 @@ class CartItemAdmin(admin.TabularInline):
 class CartAdmin(admin.ModelAdmin):
     list_display = ["id", "status"]
     inlines = [CartItemAdmin]
+
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ["id", "status"]
+
