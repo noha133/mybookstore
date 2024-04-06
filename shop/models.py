@@ -50,6 +50,8 @@ class Cart(models.Model):
     status = models.CharField(
         max_length=20, choices=STATUS_CHOICES, default="ABANDONED"
     )
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"Cart {self.id}"
@@ -81,3 +83,5 @@ class Order(models.Model):
     ]
     cart = models.ForeignKey(Cart, related_name="orders", on_delete=models.CASCADE)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="PAID")
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
