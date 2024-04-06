@@ -27,9 +27,9 @@ class Product(models.Model):
     @property
     def total_quantity_ordered(self):
         return (
-            self.orders.aggregate(total_quantity_ordered=models.Sum("quantity")).get(
-                "total_quantity_ordered"
-            )
+            self.order_items.aggregate(
+                total_quantity_ordered=models.Sum("quantity")
+            ).get("total_quantity_ordered")
             or 0
         )
 
@@ -42,14 +42,7 @@ class Product(models.Model):
 
 
 class Cart(models.Model):
-    STATUS_CHOICES = [
-        ("ABANDONED", "Abandoned"),
-        ("PAID", "Paid"),
-    ]
     user = models.ForeignKey(User, related_name="carts", on_delete=models.CASCADE)
-    status = models.CharField(
-        max_length=20, choices=STATUS_CHOICES, default="ABANDONED"
-    )
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -81,6 +74,7 @@ class Order(models.Model):
         ("PENDING", "pending"),
         ("PAID", "Paid"),
     ]
+    user = models.ForeignKey(User, related_name="user_order", on_delete=models.CASCADE)
     cart = models.ForeignKey(Cart, related_name="orders", on_delete=models.CASCADE)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="PAID")
     created = models.DateTimeField(auto_now_add=True)

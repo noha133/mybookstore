@@ -22,10 +22,10 @@ class CartItemAdmin(admin.TabularInline):
 
 @admin.register(Cart)
 class CartAdmin(admin.ModelAdmin):
-    list_display = ["id", "status"]
+    list_display = ["id"]
     inlines = [CartItemAdmin]
 
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ["id", "status"]
+    list_display = ["id", "status", "cart"]
