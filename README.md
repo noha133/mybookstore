@@ -23,10 +23,10 @@ To set up the application, follow these steps:
 
 | Action                                                                   | HTTP Verb | Path                                                                        | Parameters  | Body                                                                       | Response                                                |
 |--------------------------------------------------------------------------|-----------|-----------------------------------------------------------------------------|---------------------------------------------|--------------------------------------|---------------------------------------------------------|
-| Create a new category | POST |  | | | | 
-| Create a new product | POST | shop/products/ | | | | 
-| Get a product | GET | shop/products/<int:pk>/ | | | | 
-| Get a list of products | GET | shop/products/ | | | | 
-| Add items to user's cart | POST | /shop/cart/items/ | | | | 
+| Create a new category | POST |  |  | | | 
+| Create a new product | POST | /shop/products/ | | [{"name","category","price"}] | | 
+| Get a product | GET | /shop/products/<int:pk>/ | "product_id" | | | 
+| Get a list of products | GET | /shop/products/ | | | | 
+| Add items to user's cart | POST | /shop/cart/items/ | | {"product"} | | 
 | Create an order | POST | /shop/orders/ | | | | 
 | List orders | GET | /shop/orders/ | | | | 
