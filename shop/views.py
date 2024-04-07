@@ -1,5 +1,10 @@
-from .models import Product, Order, Cart, CartItem
-from .serializers import ProductSerializer, CartItemSerializer, OrderSerializer, CategorySerializer
+from .models import Product, Order, Cart, CartItem, OrderItem, User
+from .serializers import (
+    ProductSerializer,
+    CartItemSerializer,
+    OrderSerializer,
+    CategorySerializer,
+)
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -9,8 +14,9 @@ from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
+
 class CategoryList(APIView):
- 
+
     # permission_classes = [IsAuthenticated]
 
     def post(self, request, format=None):
@@ -19,13 +25,14 @@ class CategoryList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
+
 class ProductList(APIView):
     """
     List all products, or create new product.
     """
 
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):
         products = Product.objects.all()
@@ -45,7 +52,7 @@ class ProductDetail(APIView):
     Retrieve, update or delete a snippet instance.
     """
 
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     def get_object(self, pk):
         try:
@@ -67,7 +74,7 @@ class CartItemList(APIView):
         product_id = request.data.get("product")
 
         cart, _ = Cart.objects.get_or_create(user=user)
-        product = Product.objects.get(id=product_id)
+        product = get_object_or_404(Product, id=product_id)
 
         cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
         if not created:
@@ -91,12 +98,19 @@ class OrderList(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        data = request.data
-        data["user"] = request.user.id
+        user = request.user
+        request.data["user"] = user.id
+
+        cart = get_object_or_404(Cart, user=user.id)
+        cart_items = cart.cart_items.all()
+
         serializer = OrderSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
-            user = request.user
-            get_object_or_404(Cart, user=user).delete()
+            order = serializer.save()
+            for item in cart_items:
+                OrderItem.objects.create(
+                    order=order, product=item.product, quantity=item.quantity
+                )
+            cart.delete()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

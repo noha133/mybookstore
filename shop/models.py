@@ -54,8 +54,8 @@ class Cart(models.Model):
         return sum(item.get_cost for item in self.items.all())
 
 
-class CartItem(models.Model):
-    cart = models.ForeignKey(Cart, related_name="items", on_delete=models.CASCADE)
+class ItemBaseModel(models.Model):
+    # cart = models.ForeignKey(Cart, related_name="items", on_delete=models.CASCADE)
     product = models.ForeignKey(
         Product, related_name="order_items", on_delete=models.CASCADE
     )
@@ -69,13 +69,26 @@ class CartItem(models.Model):
         return self.price * self.quantity
 
 
+class CartItem(ItemBaseModel):
+    cart = models.ForeignKey(Cart, related_name="cart_items", on_delete=models.CASCADE)
+
+
 class Order(models.Model):
     STATUS_CHOICES = [
         ("PENDING", "pending"),
         ("PAID", "Paid"),
     ]
     user = models.ForeignKey(User, related_name="user_order", on_delete=models.CASCADE)
-    cart = models.ForeignKey(Cart, related_name="orders", on_delete=models.CASCADE)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="PAID")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    address = models.CharField(max_length=200)
+    city = models.CharField(max_length=200)
+
+
+class OrderItem(ItemBaseModel):
+    order = models.ForeignKey(
+        Order, related_name="order_items", on_delete=models.CASCADE
+    )
+
+   
