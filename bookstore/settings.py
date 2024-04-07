@@ -100,8 +100,8 @@ DATABASES = {
 }
 # Celery settings
 
-CELERY_BROKER_URL = "redis://127.0.0.1:6379/0"
-CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379/0"
+CELERY_BROKER_URL = "redis://redis:6379/0"
+CELERY_RESULT_BACKEND = "redis://redis:6379/0"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -173,3 +173,12 @@ AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of allauth
     "django.contrib.auth.backends.ModelBackend",
 ]
+
+from datetime import timedelta
+
+CELERY_BEAT_SCHEDULE = {
+    "my_hourly_task": {
+        "task": "shop.tasks.my_hourly_task",
+        "schedule": timedelta(minutes=3),
+    },
+}
