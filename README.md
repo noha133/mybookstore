@@ -23,7 +23,9 @@ To set up the application, follow these steps:
 
 | Action                                                                   | HTTP Verb | Path                                                                        | Parameters  | Body                                                                       | Response                                                |
 |--------------------------------------------------------------------------|-----------|-----------------------------------------------------------------------------|---------------------------------------------|--------------------------------------|---------------------------------------------------------|
-| Create a new category | POST |  |  | | | 
+| Registration | Post| /user/register/ |  | {"username","password1","password2"} | {"access","refresh","user":{"pk","email"}} |
+| Login | Post| /user/login/ |  | {"username","password""} | {"access","refresh"} |
+| Create a new category | POST | /shop/categories/ |  | {"name"} | {"id","name"} | 
 | Create a new product | POST | /shop/products/ | | [{"name","category","price"}] | | 
 | Get a product | GET | /shop/products/<int:pk>/ | "product_id" | | | 
 | Get a list of products | GET | /shop/products/ | | | | 
