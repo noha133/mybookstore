@@ -22,13 +22,13 @@ To set up the application, follow these steps:
 
 
 | Action                                                                   | HTTP Verb | Path                                                                        | Parameters  | Body                                                                       | Response                                                |
-|--------------------------------------------------------------------------|-----------|-----------------------------------------------------------------------------|---------------------------------------------|--------------------------------------|---------------------------------------------------------|
+|--------------------------------------------------------------------------|-----------|-----------------------------------------------------------------------------|---------------------------------------------|--------------------------------------|----------------------------------------------------------------------------------|
 | Registration | Post| /user/register/ |  | {"username","password1","password2"} | {"access","refresh","user":{"pk","email"}} |
 | Login | Post| /user/login/ |  | {"username","password""} | {"access","refresh"} |
 | Create a new category | POST | /shop/categories/ |  | {"name"} | {"id","name"} | 
-| Create a new product | POST | /shop/products/ | | [{"name","category","price"}] | | 
-| Get a product | GET | /shop/products/<int:pk>/ | "product_id" | | | 
-| Get a list of products | GET | /shop/products/ | | | | 
-| Add items to user's cart | POST | /shop/cart/items/ | | {"product"} | | 
-| Create an order | POST | /shop/orders/ | | | | 
-| List orders | GET | /shop/orders/ | | | | 
+| Create a new product(s) | POST | /shop/products/ | | [{"name","category","price"}] | [{"id","name","category","price","total_quantity_ordered"}] | 
+| Get a product | GET | /shop/products/<int:pk>/ | "product_id" | | {"id","name","category","price","total_quantity_ordered"} | 
+| Get a list of products | GET | /shop/products/ | | | [{"id","name","category","price","total_quantity_ordered"}] | 
+| Add items to user's cart | POST | /shop/cart/items/ | | {"product"} | {"id","quantity","product","cart"}| 
+| Create an order | POST | /shop/orders/ | | {"address","city"} | {"id","status","created","updated","address","city","user"} | 
+| List orders | GET | /shop/orders/ | | | [{"id","status","created","updated","address","city","user"}] | 
