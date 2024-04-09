@@ -12,10 +12,28 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
 from .tasks import order_created
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 
 # Create your views here.
 
 
+# @swagger_auto_schema(
+#     method="post",
+#     request_body=openapi.Schema(
+#         type=openapi.TYPE_OBJECT,
+#         properties={
+#             "name": openapi.Schema(type=openapi.TYPE_STRING),
+#             "email": openapi.Schema(type=openapi.TYPE_STRING),
+#         },
+#         required=["name", "email"],
+#     ),
+#     responses={
+#         201: "Created",
+#         400: "Bad Request",
+#     },
+# )
 class CategoryList(APIView):
 
     permission_classes = [IsAuthenticated]
