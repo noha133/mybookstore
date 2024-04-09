@@ -1,0 +1,649 @@
+{
+	"info": {
+		"_postman_id": "47684dec-782c-44c4-93d9-4c7b22f67b63",
+		"name": "Bookstore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "16605904"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "nohamesllhy133@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "AaBB1122@",
+									"type": "text"
+								},
+								{
+									"key": "refresh",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMjI3OTYxNiwiaWF0IjoxNzEyMTkzMjE2LCJqdGkiOiI1ZGRjNTUwNmI5OTQ0ZGE1YWZjNmJjOWNlMzE4YjgxMyIsInVzZXJfaWQiOjF9.AAJQLla_wpVh83bMCRoWfFHYJGAjVOVxqtCgTR5WWRo",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": "http://127.0.0.1:8000/user/login/"
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "nohamesllhy133@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "AaBB1122@",
+											"type": "text"
+										},
+										{
+											"key": "refresh",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMjI3OTYxNiwiaWF0IjoxNzEyMTkzMjE2LCJqdGkiOiI1ZGRjNTUwNmI5OTQ0ZGE1YWZjNmJjOWNlMzE4YjgxMyIsInVzZXJfaWQiOjF9.AAJQLla_wpVh83bMCRoWfFHYJGAjVOVxqtCgTR5WWRo",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": "http://127.0.0.1:8000/user/login/"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 09 Apr 2024 06:01:46 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "336"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "csrftoken=0yBivkMaKKGndjlKeIdK27Ncwb9btZnv; expires=Tue, 08 Apr 2025 06:01:46 GMT; Max-Age=31449600; Path=/; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sessionid=rq3czjboqzyhv84ayaz6nvkve7onx79z; expires=Tue, 23 Apr 2024 06:01:46 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyNjQyODA2LCJpYXQiOjE3MTI2NDI1MDYsImp0aSI6ImUwYzdiNGQwNzhmYTRmMzk4ZDFjY2FmYzhlZWQ2ZmFhIiwidXNlcl9pZCI6MX0.qAqIxa-hqleqUWLHV4_r73S85DI85Lb0-m7F23fZawA\",\n    \"refresh\": \"\",\n    \"user\": {\n        \"pk\": 1,\n        \"email\": \"nohamesllhy133@gmail.com\",\n        \"first_name\": \"\",\n        \"last_name\": \"\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Regiter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"nohamesllhy133@gmail.com\",\r\n    \"password1\":\"AaBB1122@\",\r\n    \"password2\":\"AaBB1122@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/user/register/"
+					},
+					"response": [
+						{
+							"name": "Regiter",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"nohamesllhy13d3@gmail.com\",\r\n    \"password1\":\"AaBB1122@\",\r\n    \"password2\":\"AaBB1122@\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/user/register/"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 09 Apr 2024 06:03:54 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "566"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "messages=.eJyLjlaKj88qzs-Lz00tLk5MT1XSMdAxMtVRCi5NTgaKpJXm5FQqFGem56WmKGTmKSQWK-RWpuYmZuboKekoKcXqkK4_Lz8jEag4Jyej0tDYeFAZkwI1JxYApSVdvA:1ru4aI:rYAUqlFFBbJOe32LFsMcCkQY_5BrJTZP9PVKdtUYbZc; HttpOnly; Path=/; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "csrftoken=j3rciFu2kuZEsDXZ9EPjoLdUA0XdDsx0; expires=Tue, 08 Apr 2025 06:03:54 GMT; Max-Age=31449600; Path=/; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sessionid=94twsayd42rnm7m41swbhsvxc0t1qhcl; expires=Tue, 23 Apr 2024 06:03:54 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyNjQyOTM0LCJpYXQiOjE3MTI2NDI2MzQsImp0aSI6Ijg5MjgwY2UxOWMwZjQyNWI5Y2U3NWMyZDJiNDM4NTExIiwidXNlcl9pZCI6Mn0.bmNKcG-6NZXrOGvKN73J7745cHYVrY4ZjQdHa3vukdA\",\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMjcyOTAzNCwiaWF0IjoxNzEyNjQyNjM0LCJqdGkiOiI3NTQ0MjQ1NDY5OWU0MGM1OTU4NjE3ZmYyMmFhNjFlNiIsInVzZXJfaWQiOjJ9.o8ItITffD3pbrtd8Er3fqjrixbI-Bkz-qxg5udgydvc\",\n    \"user\": {\n        \"pk\": 2,\n        \"email\": \"nohamesllhy13d3@gmail.com\",\n        \"first_name\": \"\",\n        \"last_name\": \"\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "shop",
+			"item": [
+				{
+					"name": "Category Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyNjQyODA2LCJpYXQiOjE3MTI2NDI1MDYsImp0aSI6ImUwYzdiNGQwNzhmYTRmMzk4ZDFjY2FmYzhlZWQ2ZmFhIiwidXNlcl9pZCI6MX0.qAqIxa-hqleqUWLHV4_r73S85DI85Lb0-m7F23fZawA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Biology\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/shop/categories/"
+					},
+					"response": [
+						{
+							"name": "Category Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyNjQyODA2LCJpYXQiOjE3MTI2NDI1MDYsImp0aSI6ImUwYzdiNGQwNzhmYTRmMzk4ZDFjY2FmYzhlZWQ2ZmFhIiwidXNlcl9pZCI6MX0.qAqIxa-hqleqUWLHV4_r73S85DI85Lb0-m7F23fZawA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Biology\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/shop/categories/"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 09 Apr 2024 06:04:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "25"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"name\": \"Biology\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Products Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyNjQyNjgxLCJpYXQiOjE3MTI2NDIzODEsImp0aSI6IjZkNmYzYmFmZGVlZTQ1M2ViMDVjYWMwM2MzMzFiMzkwIiwidXNlcl9pZCI6MX0.JOiejJuQU2WiuC4LTr8o5Ggn6zgn1MA6-YdCrMTJMZo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"name\": \"Test\",\r\n        \"category\": 1,\r\n        \"price\": \"200.00\"\r\n    },\r\n    {\r\n        \"name\": \"Test2\",\r\n        \"category\": 1,\r\n        \"price\": \"250.00\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/shop/products/"
+					},
+					"response": [
+						{
+							"name": "Products Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyNjQyNjgxLCJpYXQiOjE3MTI2NDIzODEsImp0aSI6IjZkNmYzYmFmZGVlZTQ1M2ViMDVjYWMwM2MzMzFiMzkwIiwidXNlcl9pZCI6MX0.JOiejJuQU2WiuC4LTr8o5Ggn6zgn1MA6-YdCrMTJMZo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"name\": \"Test\",\r\n        \"category\": 1,\r\n        \"price\": \"200.00\"\r\n    },\r\n    {\r\n        \"name\": \"Test2\",\r\n        \"category\": 1,\r\n        \"price\": \"250.00\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/shop/products/"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 09 Apr 2024 06:04:31 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "166"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"name\": \"Test\",\n        \"category\": 1,\n        \"price\": \"200.00\",\n        \"total_quantity_ordered\": \"0\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Test2\",\n        \"category\": 1,\n        \"price\": \"250.00\",\n        \"total_quantity_ordered\": \"0\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Products Detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyMzg5NzcxLCJpYXQiOjE3MTIzODk0NzEsImp0aSI6IjFmMGI4MDBhNGUxODQ5NmJiNzI0MjVlNmE3NzQyZjY0IiwidXNlcl9pZCI6MX0.INts5U8VBNSQlJfq7tzw1TTyA3EQ22XT4JT4G_HP6Z8",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/shop/products/2/"
+					},
+					"response": [
+						{
+							"name": "Products Detail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyNjQzMDk3LCJpYXQiOjE3MTI2NDI3OTcsImp0aSI6IjRjZDg0YWM3ODI2ZDRkNWU4NmY0ZTM4YzgxMzI0MDFmIiwidXNlcl9pZCI6MX0.7DZbqntS7SuXlF4blVo9jQNjZbF78jGT5nqMda7Cgqg",
+										"type": "text"
+									}
+								],
+								"url": "http://127.0.0.1:8000/shop/products/2/"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 09 Apr 2024 06:06:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "82"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"name\": \"Test2\",\n    \"category\": 1,\n    \"price\": \"250.00\",\n    \"total_quantity_ordered\": \"0\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Products List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyNjQyODA2LCJpYXQiOjE3MTI2NDI1MDYsImp0aSI6ImUwYzdiNGQwNzhmYTRmMzk4ZDFjY2FmYzhlZWQ2ZmFhIiwidXNlcl9pZCI6MX0.qAqIxa-hqleqUWLHV4_r73S85DI85Lb0-m7F23fZawA",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/shop/products/"
+					},
+					"response": [
+						{
+							"name": "Products List",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyNjQzMDk3LCJpYXQiOjE3MTI2NDI3OTcsImp0aSI6IjRjZDg0YWM3ODI2ZDRkNWU4NmY0ZTM4YzgxMzI0MDFmIiwidXNlcl9pZCI6MX0.7DZbqntS7SuXlF4blVo9jQNjZbF78jGT5nqMda7Cgqg",
+										"type": "text"
+									}
+								],
+								"url": "http://127.0.0.1:8000/shop/products/"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 09 Apr 2024 06:07:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "331"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Test\",\n        \"category\": 1,\n        \"price\": \"200.00\",\n        \"total_quantity_ordered\": \"0\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Test\",\n        \"category\": 1,\n        \"price\": \"200.00\",\n        \"total_quantity_ordered\": \"0\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Test2\",\n        \"category\": 1,\n        \"price\": \"250.00\",\n        \"total_quantity_ordered\": \"0\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Test2\",\n        \"category\": 1,\n        \"price\": \"250.00\",\n        \"total_quantity_ordered\": \"0\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Items Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyNDgzMTE4LCJpYXQiOjE3MTI0ODI4MTgsImp0aSI6IjZmMDBlMWQwOWMyNTRkOGNiNjRhZWU5Nzg2NjM5ODQwIiwidXNlcl9pZCI6MX0.uKL7FAd4oDUNjdU7W6f7n1Az_TPNwKmAGeL3E3nnzHI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/shop/cart/items/"
+					},
+					"response": []
+				},
+				{
+					"name": "Order Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyNjM5NjUxLCJpYXQiOjE3MTI2MzkzNTEsImp0aSI6IjAyZmY2NDQzMDU1NTRiMTQ5NzUwNWVjNGRlNzQxOWMzIiwidXNlcl9pZCI6M30.jpZJya76lXEaLwr0LEOrxavVK5FK7kXYf0FJ4Qzvop0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"address\":\"This field is required.\",\r\n    \"city\": \"This field is required.\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/shop/orders/"
+					},
+					"response": []
+				},
+				{
+					"name": "Order List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyMzg5ODQ0LCJpYXQiOjE3MTIzODk1NDQsImp0aSI6IjM3NjMzMDhiZDEzYzRmYjA5ZGRiMWNjOWE5YzlkMTdiIiwidXNlcl9pZCI6MX0.56o-iqBsZN_OEiXh-kO1vjbqGWHcloepPT7r0N6HQJ4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"status\": \"PENDING\",\r\n    \"created\": \"2024-04-06T05:48:20.708301Z\",\r\n    \"updated\": \"2024-04-06T05:48:20.708321Z\",\r\n    \"cart\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/shop/orders/"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
