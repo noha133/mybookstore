@@ -189,7 +189,7 @@ from firebase_admin import initialize_app
 FIREBASE_APP = initialize_app()
 # FCM settings
 FCM_DJANGO_SETTINGS = {
-    "FCM_SERVER_KEY": "AAAAnKt-bNA:APA91bHzv2SAs4WI64De-SUJ052xBezhVQRSAjoR140_vwtC2u1RX20ZAV3H5la2RCxWpDZdJyheEbyWERYXcE8pbzLspkMfXGWGPEqpBRNz-w6foOSxPS2_a8f4z-7mVj0wMpaArYPL",
+    "FCM_SERVER_KEY": "AAAAnKt-bNA:APA91bHzv2SAs4WI64De-SUJ052xBezhVQRSAjoR140_vwtC2u1RX20ZAV3H5la2RCxWpDZdJyheEbyWERYXcEL",
     "ONE_DEVICE_PER_USER": False,  # Set it to True if you want to allow only one device per user
     "DELETE_INACTIVE_DEVICES": False,  # Set it to True if you want to automatically delete inactive devices
 }
