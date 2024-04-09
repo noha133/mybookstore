@@ -11,6 +11,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
+from .tasks import order_created
 
 # Create your views here.
 
@@ -112,5 +113,6 @@ class OrderList(APIView):
                     order=order, product=item.product, quantity=item.quantity
                 )
             cart.delete()
+            order_created.delay(order.id)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

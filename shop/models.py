@@ -66,7 +66,7 @@ class ItemBaseModel(models.Model):
 
     @property
     def get_cost(self):
-        return self.price * self.quantity
+        return self.product.price * self.quantity
 
 
 class CartItem(ItemBaseModel):
@@ -84,11 +84,14 @@ class Order(models.Model):
     updated = models.DateTimeField(auto_now=True)
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=200)
+    invoice = models.TextField(null=True)
+
+    @property
+    def get_total_cost(self):
+        return sum(item.get_cost for item in self.order_items.all())
 
 
 class OrderItem(ItemBaseModel):
     order = models.ForeignKey(
         Order, related_name="order_items", on_delete=models.CASCADE
     )
-
-   
