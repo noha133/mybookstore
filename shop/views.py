@@ -18,7 +18,7 @@ from .tasks import order_created
 
 class CategoryList(APIView):
 
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request, format=None):
         serializer = CategorySerializer(data=request.data)
@@ -33,7 +33,7 @@ class ProductList(APIView):
     List all products, or create new product.
     """
 
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):
         products = Product.objects.all()
@@ -53,7 +53,7 @@ class ProductDetail(APIView):
     Retrieve, update or delete a snippet instance.
     """
 
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def get_object(self, pk):
         try:
